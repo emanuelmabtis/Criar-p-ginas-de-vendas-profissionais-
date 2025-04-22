@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template Barbearia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/framer-motion@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide-react@latest"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1, h2, p {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .gradient-text {
+      background: linear-gradient(to bottom, #8B4513, #000000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 0 #000, 4px 4px 0 #555;
+    }
+    .button {
+      background-color: #a0522d;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .image {
+      display: block;
+      margin: 0 auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .motion-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="gradient-text">Barbearia</h1>
+  <p class="gradient-text">Estilo, cuidado e atitude em cada corte. Agende já o seu horário!</p>
+
+  <div class="flex justify-center">
+    <img src="sua-imagem.jpg" alt="Logo Barbearia" class="image" width="150" height="150">
+  </div>
+
+  <p>Trabalhamos com dedicação e excelência para oferecer cortes modernos, atendimento de qualidade e um serviço de confiança que faz você voltar!</p>
+  
+  <p class="font-semibold">Venha agendar o seu horário</p>
+
+  <div class="motion-button">
+    <button class="button">Agendar o meu horário</button>
+  </div>
+
+  <h2>Crie sua Página: Barbearia</h2>
+  
+  <label for="nomeLoja">Nome da Barbearia:</label>
+  <input type="text" id="nomeLoja" placeholder="Nome da Barbearia" class="input-field">
+  
+  <label for="servicos">Serviços e preços:</label>
+  <textarea id="servicos" rows="5" placeholder="Serviços e preços" class="input-field"></textarea>
+
+  <label for="whatsapp">Número do WhatsApp:</label>
+  <input type="text" id="whatsapp" placeholder="Número do WhatsApp (com DDD)" class="input-field">
+
+  <button onclick="gerarLink()">Gerar Página de Venda</button>
+
+  <script>
+    function gerarLink() {
+      const nomeLoja = document.getElementById('nomeLoja').value;
+      const servicos = document.getElementById('servicos').value;
+      const whatsapp = document.getElementById('whatsapp').value;
+      
+      const texto = `*${nomeLoja}*\n\n${servicos.replace(/\n/g, "\n")}\n\nAgende pelo WhatsApp: https://wa.me/${whatsapp}`;
+      
+      navigator.clipboard.writeText(texto);
+      alert("Texto copiado! Agora é só colar na sua bio ou divulgar.");
+    }
+  </script>
+</div>
+
+</body>
+</html>
