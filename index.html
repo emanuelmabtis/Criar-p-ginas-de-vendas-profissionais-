@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template Barbearia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1, h2, p {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .gradient-text {
+      background: linear-gradient(to bottom, #8B4513, #000000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 0 #000, 4px 4px 0 #555;
+      font-size: 2.5rem;
+    }
+    .button {
+      background-color: #a0522d;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #8B4513;
+    }
+    .image {
+      display: block;
+      margin: 0 auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .input-field, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+    }
+    .input-field:focus, textarea:focus {
+      border-color: #8B4513;
+    }
+    .motion-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px;
+    }
+    .section {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+    .section h2 {
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+      color: #333;
+    }
+    .section p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 768px) {
+      .gradient-text {
+        font-size: 2rem;
+      }
+      .button {
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="gradient-text">Barbearia</h1>
+  <p class="gradient-text">Estilo, cuidado e atitude em cada corte. Agende já o seu horário!</p>
+
+  <!-- Imagem da Barbearia -->
+  <div class="flex justify-center">
+    <img src="sua-imagem.jpg" alt="Logo Barbearia" class="image" width="150" height="150">
+  </div>
+
+  <p>Trabalhamos com dedicação e excelência para oferecer cortes modernos, atendimento de qualidade e um serviço de confiança que faz você voltar!</p>
+  
+  <p class="font-semibold">Venha agendar o seu horário</p>
+
+  <div class="motion-button">
+    <button class="button">Agendar o meu horário</button>
+  </div>
+
+  <!-- Seção de Criação da Página -->
+  <div class="section">
+    <h2>Crie sua Página: Barbearia</h2>
+    
+    <label for="nomeLoja">Nome da Barbearia:</label>
+    <input type="text" id="nomeLoja" placeholder="Nome da Barbearia" class="input-field">
+    
+    <label for="servicos">Serviços e preços:</label>
+    <textarea id="servicos" rows="5" placeholder="Serviços e preços" class="input-field"></textarea>
+
+    <label for="whatsapp">Número do WhatsApp:</label>
+    <input type="text" id="whatsapp" placeholder="Número do WhatsApp (com DDD)" class="input-field">
+
+    <button onclick="gerarLink()" class="button">Gerar Página de Venda</button>
+  </div>
+
+</div>
+
+<script>
+  function gerarLink() {
+    const nomeLoja = document.getElementById('nomeLoja').value;
+    const servicos = document.getElementById('servicos').value;
+    const whatsapp = document.getElementById('whatsapp').value;
+    
+    const texto = `*${nomeLoja}*\n\n${servicos.replace(/\n/g, "\n")}\n\nAgende pelo WhatsApp: https://wa.me/${whatsapp}`;
+    
+    navigator.clipboard.writeText(texto);
+    alert("Texto copiado! Agora é só colar na sua bio ou divulgar.");
+  }
+</script>
+
+</body>
+</html>
